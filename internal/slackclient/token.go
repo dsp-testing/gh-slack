@@ -93,7 +93,7 @@ func getCookie() (string, error) {
 
 var apiTokenRE = regexp.MustCompile("\"api_token\":\"([^\"]+)\"")
 
-func getSlackAuth(team string) (*SlackAuth, error) {
+func GetSlackAuth(team string) (*SlackAuth, error) {
 	cookie, err := getCookie()
 	if err != nil {
 		return nil, err

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"net/http"
 	"net/url"
 	"os"
 	"regexp"
@@ -113,9 +114,12 @@ func readSlack(args []string) error {
 		logger = log.Default()
 	}
 
-	client, err := slackclient.New(
-		linkParts.team,
-		logger)
+	httpClient := http.Client{}
+	auth, err := slackclient.GetSlackAuth(linkParts.team)
+	if err != nil {
+		return err
+	}
+	client, err := slackclient.New(linkParts.team, logger, &httpClient, auth)
 	if err != nil {
 		return err
 	}

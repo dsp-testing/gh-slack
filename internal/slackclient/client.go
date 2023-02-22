@@ -102,13 +102,13 @@ type Cache struct {
 type SlackClient struct {
 	cachePath string
 	team      string
-	client    http.Client
+	client    *http.Client
 	auth      *SlackAuth
 	cache     Cache
 	log       *log.Logger
 }
 
-func New(team string, log *log.Logger) (*SlackClient, error) {
+func New(team string, log *log.Logger, client *http.Client, auth *SlackAuth) (*SlackClient, error) {
 	dataHome := os.Getenv("XDG_DATA_HOME")
 	if dataHome == "" {
 		home, err := os.UserHomeDir()
@@ -119,19 +119,15 @@ func New(team string, log *log.Logger) (*SlackClient, error) {
 	}
 	cachePath := path.Join(dataHome, "gh-slack")
 
-	auth, err := getSlackAuth(team)
-	if err != nil {
-		return nil, err
-	}
-
 	c := &SlackClient{
 		cachePath: cachePath,
 		team:      team,
 		auth:      auth,
+		client:    client,
 		log:       log,
 	}
 
-	err = c.loadCache()
+	err := c.loadCache()
 	return c, err
 }
 

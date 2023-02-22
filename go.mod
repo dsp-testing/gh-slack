@@ -5,9 +5,9 @@ go 1.18
 require (
 	github.com/billgraziano/dpapi v0.4.0
 	github.com/cli/go-gh v0.0.3
-	github.com/jessevdk/go-flags v1.5.0
 	github.com/keybase/go-keychain v0.0.0-20220506172723-c18928ccd7f2
 	github.com/spf13/cobra v1.6.1
+	github.com/tjgurwara99/mixtape v0.0.5
 	golang.org/x/crypto v0.0.0-20220507011949-2cf3adece122
 	modernc.org/sqlite v1.15.3
 	r00t2.io/gosecret v1.1.5

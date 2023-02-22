@@ -19,7 +19,7 @@ func TestGetCookie(t *testing.T) {
 }
 
 func TestGetAuth(t *testing.T) {
-	auth, err := getSlackAuth("github")
+	auth, err := GetSlackAuth("github")
 	if err != nil {
 		t.Error(err)
 	}

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/rneatherway/gh-slack/internal/slackclient"
@@ -38,7 +39,12 @@ var sendCmd = &cobra.Command{
 
 // sendMessage sends a message to a Slack channel.
 func sendMessage(team, channelID, message string, logger *log.Logger) error {
-	client, err := slackclient.New(team, logger)
+	httpClient := http.Client{}
+	auth, err := slackclient.GetSlackAuth(team)
+	if err != nil {
+		return err
+	}
+	client, err := slackclient.New(team, logger, &httpClient, auth)
 	if err != nil {
 		return err
 	}

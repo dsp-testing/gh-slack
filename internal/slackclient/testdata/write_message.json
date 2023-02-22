@@ -1,0 +1,54 @@
+{
+  "songs": [
+    {
+      "id": 0,
+      "request": {
+        "Method": "POST",
+        "URL": "https://github.slack.com/api/chat.postMessage",
+        "Proto": "HTTP/1.1",
+        "ProtoMajor": 1,
+        "ProtoMinor": 1,
+        "Header": {
+          "Authorization": [
+            "Bearer abc123"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Cookie": [
+            "blahblahblah"
+          ]
+        },
+        "Body": "{\"channel\":\"C04QJSB8G4D\",\"text\":\"Sending a message from test to mock http interactions\"}",
+        "ContentLength": 88,
+        "TransferEncoding": null,
+        "Close": false,
+        "Host": "github.slack.com",
+        "Form": null,
+        "PostForm": null,
+        "MultipartForm": null,
+        "Trailer": null,
+        "RemoteAddr": "",
+        "RequestURI": "",
+        "TLS": null
+      },
+      "response": {
+        "Status": "200 OK",
+        "StatusCode": 200,
+        "Proto": "HTTP/2.0",
+        "ProtoMajor": 2,
+        "ProtoMinor": 0,
+        "Header": {
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ]
+        },
+        "Body": "{\"ok\":true,\"channel\":\"C04QJSB8G4D\",\"ts\":\"1677107538.722019\",\"message\":{\"type\":\"message\",\"text\":\"Sending a message from test to mock http interactions\",\"user\":\"U03RRATS2BA\",\"ts\":\"1677107538.722019\",\"blocks\":[{\"type\":\"rich_text\",\"block_id\":\"9BS1\",\"elements\":[{\"type\":\"rich_text_section\",\"elements\":[{\"type\":\"text\",\"text\":\"Sending a message from test to mock http interactions\"}]}]}],\"team\":\"T0CA8C346\"}}",
+        "ContentLength": -1,
+        "TransferEncoding": null,
+        "Close": false,
+        "Trailer": null
+      }
+    }
+  ]
+}
